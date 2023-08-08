@@ -7,3 +7,21 @@ Content-Type: application/json
     "password":"sssss",
     "test":"test"
 }
+
+### Find a prticular user with a given ID
+GET http://localhost:3000/auth/2
+
+### Find all users with a given email
+GET http://localhost:3000/auth?email=husse@husse.cc
+
+### Delete user with a given ID
+DELETE http://localhost:3000/auth/9
+
+### Update a user
+PATCH http://localhost:3000/auth/2
+Content-Type: application/json
+
+{
+    # "email":"husse@husse1211.cc"
+    "password":"1299"
+}
