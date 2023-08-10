@@ -3,8 +3,24 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email":"husse@husse.cc",
-    "password":"sssss",
+    "email":"husddseo@hd1usse.chxd",
+    "password":"1235",
+    "test":"test"
+}
+
+### Get the currently user signed in user
+GET http://localhost:3000/auth/whoami
+
+### Sign out
+POST  http://localhost:3000/auth/signout
+
+### Signin for a user
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email":"husse@hdusse.chxd",
+    "password":"1235",
     "test":"test"
 }
 
@@ -23,5 +39,11 @@ Content-Type: application/json
 
 {
     # "email":"husse@husse1211.cc"
-    "password":"1299"
+    "password":"12999"
 }
+
+### Set a color
+GET http://localhost:3000/auth/colors/red
+
+### Get the colors
+GET http://localhost:3000/auth/colors
