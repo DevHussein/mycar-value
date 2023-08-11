@@ -3,7 +3,7 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email":"husddseo@hd1usse.chxd",
+    "email":"husddseo@hd1usse.chxdl",
     "password":"1235",
     "test":"test"
 }
@@ -19,8 +19,8 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-    "email":"husse@hdusse.chxd",
-    "password":"1235",
+    "email":"husddseo@hd1usse.chxdl",
+    "password":"1o235",
     "test":"test"
 }
 
