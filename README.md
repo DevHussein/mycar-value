@@ -1,3 +1,3 @@
-## This repo for practicing the awsome framework "NestJS"
+## This repo for practicing the awesome framework "NestJS"
 
 Evaluate the car value
