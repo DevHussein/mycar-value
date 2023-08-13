@@ -17,7 +17,6 @@ import { Serialize } from '../interceptors/serialize.interceptors';
 import { ReportDto } from './dtos/report.dto';
 import { ApproveReportDto } from './dtos/approve-report.dto';
 import { AdminGuard } from '../gurads/admin.guard';
-import { query } from 'express';
 import { GetEstimateDto } from './dtos/get-estimate.dto';
 
 @Controller('reports')
