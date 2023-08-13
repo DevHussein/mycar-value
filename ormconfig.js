@@ -35,7 +35,16 @@ switch (process.env.NODE_ENV) {
       },
     });
   default:
-    throw new Error('unknown environment');
+    // throw new Error('unknown environment');
+    Object.assign(dbConfig, {
+      type: 'postgres',
+      url: process.env.DATABASE_URL,
+      entities: ['**/*.entity.js'],
+      migrationsRun: true,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    });
 }
 const dataSource = new DataSource(dbConfig);
 module.exports = { dbConfig, dataSource };
