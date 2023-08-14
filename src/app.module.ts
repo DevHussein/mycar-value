@@ -6,8 +6,10 @@ import { ReportsModule } from './reports/reports.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { APP_PIPE } from '@nestjs/core';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { User } from './users/user.entity';
+import { Report } from './reports/report.entity';
+import { DatabaseModule } from './database/database.module';
 const cookieSession = require('cookie-session');
-const { dbConfig } = require('../ormconfig.js');
 
 @Module({
   imports: [
@@ -15,24 +17,23 @@ const { dbConfig } = require('../ormconfig.js');
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
-    TypeOrmModule.forRoot(dbConfig),
     // TypeOrmModule.forRootAsync({
     //   inject: [ConfigService],
     //   useFactory: (config: ConfigService) => {
     //     return {
-    //       type: 'sqlite',
+    //       type: 'postgres',
+    //       host: 'localhost',
+    //       port: 5432,
+    //       username: 'postgres',
+    //       password: 'husse@123',
     //       database: config.get<string>('DB_NAME'),
     //       synchronize: true,
     //       entities: [User, Report],
+    //       migrationsRun: true,
     //     };
     //   },
     // }),
-    // TypeOrmModule.forRoot({
-    //   type: 'sqlite',
-    //   database: 'db.sqlite',
-    //   entities: [User, Report],
-    //   synchronize: true,
-    // }),
+    DatabaseModule,
     UsersModule,
     ReportsModule,
   ],

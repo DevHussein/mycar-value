@@ -6,7 +6,7 @@ import { AppModule } from './../src/app.module';
 describe('Authentication System', () => {
   let app: INestApplication;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -45,5 +45,20 @@ describe('Authentication System', () => {
       .expect(200);
 
     expect(body.email).toEqual(email);
+  });
+  afterAll(async () => {
+    const email = 'asdf@asdf.com';
+    request(app.getHttpServer())
+      .post('/auth/')
+      .send({ email, password: 'alskdfjl' })
+      .expect(201)
+      .then((res) => {
+        const { id, email } = res.body;
+        expect(id).toBeDefined();
+        expect(email).toEqual(email);
+      });
+    request(app.getHttpServer()).post(`/auth/{id}`).expect(200);
+
+    await app.close();
   });
 });

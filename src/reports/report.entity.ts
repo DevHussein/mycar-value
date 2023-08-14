@@ -1,11 +1,9 @@
+import { AbstractEntity } from '../database/abstract.entity';
 import { User } from '../users/user.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne } from 'typeorm';
 
 @Entity()
-export class Report {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class Report extends AbstractEntity<Report> {
   @Column({ default: false })
   approved: boolean;
 

@@ -1,4 +1,5 @@
 // import { Exclude } from 'class-transformer';
+import { AbstractEntity } from '../database/abstract.entity';
 import { Report } from '../reports/report.entity';
 import {
   AfterInsert,
@@ -7,14 +8,10 @@ import {
   Column,
   Entity,
   OneToMany,
-  PrimaryGeneratedColumn,
 } from 'typeorm';
 
 @Entity()
-export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class User extends AbstractEntity<User> {
   @Column()
   email: string;
 
